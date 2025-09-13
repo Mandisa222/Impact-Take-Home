@@ -6,7 +6,7 @@ import java.util.Collections;
 //Implementation class for given interface (NumberRangeSummarizer)
 public class NumberRangeSummarizerImplemented implements NumberRangeSummarizer {
 
-    
+    //Method to collect input string and convert to collection of integers
     public Collection<Integer> collect(String input) {
 
         // Basic input validation in case of null or empty input
@@ -38,7 +38,7 @@ public class NumberRangeSummarizerImplemented implements NumberRangeSummarizer {
         List<Integer> sortedList = new ArrayList<>(input); // Convert to list for easier manipulation
         Collections.sort(sortedList); // Ensure the list is sorted
 
-        StringBuilder summarized = new StringBuilder();
+        StringBuilder summarized = new StringBuilder(); // StringBuilder for efficient string concatenation
         int start = sortedList.get(0); // Start of the current range
         int end = start; // End of the current range
 
@@ -54,10 +54,10 @@ public class NumberRangeSummarizerImplemented implements NumberRangeSummarizer {
                 if (start == end) {
                     summarized.append(start).append(", ");
                 } else {
-                    summarized.append(start).append("-").append(end).append(", ");
+                    summarized.append(start).append("-").append(end).append(", "); // Use hyphen for range
                 }
-                start = current;
-                end = current;
+                start = current; // Start new range
+                end = current; 
             }
         }
         // Append the last range or number because the loop ends without appending it
@@ -66,7 +66,6 @@ public class NumberRangeSummarizerImplemented implements NumberRangeSummarizer {
         } else {
             summarized.append(start).append("-").append(end);
         }
-        return summarized.toString();
+        return summarized.toString(); // Convert StringBuilder to String and return
     }
 }
-
